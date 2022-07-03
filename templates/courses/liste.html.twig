@@ -1,1 +1,19 @@
-<h1>Liste de courses</h1>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Liste de courses</h1>
+
+    <ul>
+        {% for achat in achats %}
+            <li>
+                {% if achat.pris %}
+                    <strike>{{ achat.quantite }} x {{ achat.produit }}</strike>
+                {% else %}
+                    {{ achat.quantite }} x {{ achat.produit }}
+                {% endif %} 
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
