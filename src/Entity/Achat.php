@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AchatRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AchatRepository::class)]
 class Achat
@@ -14,9 +15,12 @@ class Achat
     private $id;
 
     #[ORM\Column(type: 'string', length: 50)]
+    #[Assert\NotBlank]
     private $produit;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank]
+    #[Assert\Type('integer')]
     private $quantite;
 
     #[ORM\Column(type: 'boolean')]
