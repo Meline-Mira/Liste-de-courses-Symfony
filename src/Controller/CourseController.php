@@ -28,7 +28,7 @@ class CourseController extends AbstractController
         ]);
     }
 
-    #[Route('/nouveau')]
+    #[Route('/nouveau', name: 'nouvel_achat')]
     public function nouveau(Request $request, ManagerRegistry $doctrine): Response
     {   
         $achat = new Achat();
