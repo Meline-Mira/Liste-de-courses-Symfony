@@ -12,7 +12,7 @@
                 {% if achat.pris %}
                     <strike>{{ achat.quantite }} x {{ achat.produit }}</strike>
                 {% else %}
-                    {{ achat.quantite }} x {{ achat.produit }}
+                    <a href="{{ path('prendre_produit', { id: achat.id }) }}">&check;</a> {{ achat.quantite }} x {{ achat.produit }}
                 {% endif %} 
             </li>
         {% endfor %}

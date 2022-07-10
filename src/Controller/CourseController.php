@@ -50,4 +50,15 @@ class CourseController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    #[Route('/prendre/{id}', name: 'prendre_produit')]
+    public function prendre(Achat $achat, ManagerRegistry $doctrine): Response
+    {
+        $achat->setPris(true);
+
+        $entityManager = $doctrine->getManager();
+        $entityManager->flush();
+
+        return $this->redirectToRoute('liste_courses');
+    }
 }
