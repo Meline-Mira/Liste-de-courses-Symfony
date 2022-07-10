@@ -20,4 +20,24 @@ class AchatRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Achat::class);
     }
+
+    public function supprimerTousProduits()
+    {
+        $connection = $this->getEntityManager()->getConnection();
+
+        $sql = 'DELETE FROM achat';
+        $requete = $connection->prepare($sql);
+
+        $requete->executeStatement();
+    }
+
+    public function supprimerProduitsPris()
+    {
+        $connection = $this->getEntityManager()->getConnection();
+
+        $sql = 'DELETE FROM achat WHERE pris = 1';
+        $requete = $connection->prepare($sql);
+
+        $requete->executeStatement();
+    }
 }

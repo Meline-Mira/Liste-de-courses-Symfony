@@ -61,4 +61,20 @@ class CourseController extends AbstractController
 
         return $this->redirectToRoute('liste_courses');
     }
+
+    #[Route('/supprimer_produits_pris', name: 'supprimer_produits_pris')]
+    public function supprimerProduitsPris()
+    {
+        $this->achatRepository->supprimerProduitsPris();
+
+        return $this->redirectToRoute('liste_courses');
+    }
+
+    #[Route('/supprimer_tous_produits', name: 'supprimer_tous_produits')]
+    public function supprimerTousProduits()
+    {
+        $this->achatRepository->supprimerTousProduits();
+
+        return $this->redirectToRoute('liste_courses');
+    }
 }
